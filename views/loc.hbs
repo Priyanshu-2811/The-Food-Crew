@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Location </title>
+  <!-- <link rel="stylesheet" href="loc.css"> -->
+  <style>
+	@import url("https://fonts.googleapis.com/css?family=Raleway");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+.flex-container {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+.flex-title {
+  color: #f1f1f1;
+  position: relative;
+  font-size: 6vw;
+  margin: auto;
+  text-align: center;
+  transform: rotate(90deg);
+  top: 15%;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-title {
+    transform: rotate(0deg) !important;
+  }
+}
+.top{
+    background-color: teal;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+    align-items:center;
+    padding:0px 40px;
+}
+.logo{
+    font-size: 30px;
+    color:lightcyan;
+}
+.nav{
+    position: relative;
+    left:-180px;
+}
+a{
+    padding:5px 15px;
+    color:lightcyan;
+    font-size: 20px;
+    text-decoration:none;
+}
+a:hover{
+    color:teal;
+    text-decoration: underline;
+    text-underline-position:under;
+}
+.search{
+    font-size: 25px;
+}
+.search i{
+    padding:5px 20px;
+}
+
+.flex-about {
+  opacity: 0;
+  color: #f1f1f1;
+  position: relative;
+  width: 70%;
+  font-size: 2vw;
+  padding: 5%;
+  top: 20%;
+  border: 2px solid #f1f1f1;
+  border-radius: 10px;
+  line-height: 1.3;
+  margin: auto;
+  text-align: left;
+  transform: rotate(0deg);
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-about {
+    padding: 0%;
+    border: 0px solid #f1f1f1;
+  }
+}
+
+.flex-slide {
+  -webkit-flex: 1;
+  /* Safari 6.1+ */
+  -ms-flex: 1;
+  /* IE 10 */
+  flex: 1;
+  cursor: pointer;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-slide {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .flex-slide p {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .flex-slide ul li {
+    font-size: 2em;
+  }
+}
+
+.flex-slide:hover {
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+
+.home {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/image/locMum.webp);
+  background-size: contain;
+  background-position: 52%  center;
+  background-attachment: fixed;
+}
+@media screen and (min-width: 768px) {
+  .home {
+    animation: aboutFlexSlide 3s 1;
+    animation-delay: 0s;
+  }
+}
+
+@keyframes aboutFlexSlide {
+  0% {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+  50% {
+    -webkit-flex-grow: 3;
+    flex-grow: 3;
+  }
+  100% {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 768px) {
+  .flex-title-home {
+    transform: rotate(90deg);
+    top: 15%;
+    animation: aboutFlexSlide 3s 1;
+    animation-delay: 0s;
+  }
+}
+
+@keyframes homeFlextitle {
+  0% {
+    transform: rotate(90deg);
+    top: 15%;
+  }
+  50% {
+    transform: rotate(0deg);
+    top: 15%;
+  }
+  100% {
+    transform: rotate(90deg);
+    top: 15%;
+  }
+}
+.flex-about-home {
+  opacity: 0;
+}
+@media screen and (min-width: 768px) {
+  .flex-about-home {
+    animation: aboutFlexSlide 3s 1;
+    animation-delay: 0s;
+  }
+}
+
+@keyframes flexAboutHome {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.about {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/image/locDelhi.jpeg);
+  background-size: contain;
+  background-position: 25% center;
+  background-attachment: fixed;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+.contact {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/image/locVar.jpeg);
+  background-size: contain;
+  background-position: 105% center;
+  background-attachment: fixed;
+}
+
+.work {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/image/locKol.jpeg);
+  background-size: contain;
+  background-position: 120% center;
+  background-attachment: fixed;
+}
+  </style>
+
+</head>
+<body>
+	<div class="top">
+        <div class="logo">The Food Crew</div>
+        <div class="nav">
+            <a href="welcome">Home</a>
+            <a href="about">About</a>
+            <a href="loc">Location</a>
+            {{!-- <a href="signup">Sign Up</a> --}}
+        </div>
+        <div class="search">
+            <i class="fa-solid fa-search"></i>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+<!-- partial:index.partial -->
+<div class="flex-container">
+	<div class="flex-slide home">
+		<div class="flex-title flex-title-home">Mumbai</div>
+		<div class="flex-about flex-about-home">
+		<div class="restaurant-box" data-url="mumbai1">Pizza Palace </div>
+		<div class="restaurant-box" data-url="mumbai2">Pasta Paradise</div>
+		<div class="restaurant-box" data-url="mumbai3">Sushi Delight</div>
+	</div>
+</div>
+	<div class="flex-slide about">
+		<div class="flex-title">Delhi</div>
+		<div class="flex-about">
+		<div class="restaurant-box" data-url="delhi1">Taco Fiesta</div>
+		<div class="restaurant-box" data-url="delhi2">Burger Barn</div>
+		<div class="restaurant-box" data-url="delhi3">Healthy Bowls </div>
+	</div>
+</div>
+	<div class="flex-slide work">
+		<div class="flex-title">Kolkata</div>
+		<div class="flex-about">
+			<div class="restaurant-box" data-url="kolkata1">Deep Dish Pizza</div>
+			<div class="restaurant-box" data-url="kolkata2">Italian Trattoria</div>
+			<div class="restaurant-box" data-url="kolkata3">Korean BBQ</div>
+		</div>
+	</div>
+	<div class="flex-slide contact">
+		<div class="flex-title">Varanasi</div>
+				<div class="flex-about">
+					<div class="restaurant-box" data-url="varanasi1">Dim Sweet House</div>
+					<div class="restaurant-box" data-url="varanasi2">Delicious House</div>
+					<div class="restaurant-box" data-url="varanasi3">Veggies Hub</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/jquery.waitforimages.min.js'></script><script  src="./script.js"></script>
+<script src="/js/loc.js"></script>
+</body>
+</html>

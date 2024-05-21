@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="myCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Booking</title>
+    <link rel="stylesheet"  href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
+    <script src="/js/angular.min.js"></script>
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav {
+    animation: fadeIn 0.5s ease;
+}
+
+#booking-form {
+    max-width: 600px;
+    margin:0px auto;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-top: 30px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+button {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    margin-top: 2rem;
+}
+main{
+    background-image: url("/image/book.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 750px;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 30px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section p {
+    margin-bottom: 5px;
+}
+
+.copyright {
+    background-color: #222;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.copyright p {
+    margin: 0;
+}
+.top{
+    background-color: teal;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+    align-items:center;
+    padding:0px 40px;
+}
+.logo{
+    font-size: 30px;
+    color:lightcyan;
+}
+.nav{
+    position: relative;
+    left:-180px;
+}
+a{
+    padding:5px 15px;
+    color:lightcyan;
+    font-size: 20px;
+    text-decoration:none;
+}
+a:hover{
+    color:teal;
+    text-decoration: underline;
+    text-underline-position:under;
+}
+.search{
+    font-size: 25px;
+}
+.search i{
+    padding:5px 20px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top">
+            <div class="logo">The Food Crew</div>
+            <div class="nav">
+                <a href="welcome">Home</a>
+                <a href="#">About</a>
+                <a href="loc">Location</a>
+                <a href="#">Sign Up</a>
+            </div>
+            <div class="search">
+                <i class="fa-solid fa-search"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="booking-form">
+            <h2>Make a Reservation</h2>
+            <form name="myform" novalidate method="post" action="/reservation" >
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" name="name" ng-pattern="/^[a-zA-Z]*$/" ng-model="user.name"  required >
+                    <span style="color:red" ng-show="myform.name.$dirty && myform.name.$invalid">
+                        <span  ng-show="myform.name.$error.required">Name is required.</span>
+                        <span ng-show="myform.name.$error.pattern">Name must contain only letters.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" name="email" ng-model="user.email" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
+                    <span style="color:red" ng-show="myform.email.$dirty && myform.email.$invalid">
+                        <span ng-show="myform.email.$error.required">Email is required.</span>
+                        <span ng-show="myform.email.$error.email">Email is not valid.</span>
+                        <span ng-show="myform.email.$error.pattern">Email is not valid.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Phone:</label>
+                    <input type="text" name="phone" ng-model="user.phone" ng-pattern="/^\d{10}$/" required>
+                    <span style="color:red" ng-show="myform.phone.$dirty && myform.phone.$invalid">
+                        <span ng-show="myform.phone.$error.required">Phone number is required.</span>
+                        <span ng-show="myform.phone.$error.pattern">Number should have 10 digits.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input type="date" name="date" ng-model="user.date" required>
+                    <span style="color:red" ng-show="myform.date.$dirty && myform.date.$invalid">
+                        <span ng-show="myform.date.$error.required">Date is required.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Time:</label>
+                    <input type="time" name="time" ng-model="user.time" required>
+                    <span style="color:red" ng-show="myform.time.$dirty && myform.time.$invalid">
+                        <span ng-show="myform.time.$error.required">Time is required.</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label>Number of Guests:</label>
+                    <input type="number" name="guests" min="1" max="50" ng-model="user.guests" required>
+                    <span style="color:red" ng-show="myform.guests.$dirty && myform.guests.$invalid">
+                        <span ng-show="myform.guests.$error.required">No. of guests is required.</span>
+                        <span ng-show="myform.guests.$error.min">Atleast 1 person is required</span>
+                        <span ng-show="myform.guests.$error.max">Maximum 50 guests is allowed.</span>
+                    </span>
+                </div>
+                <button type="submit" ng-disabled="myform.$invalid" ng-click="submit()">Book Now</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>The Food Crew serves the best food on time.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Shirpur, Maharashtra, India</p>
+                <p>Email: thefoodcrew@gmail.com</p>
+                <p>Phone: +91-7856225640</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 THE FOOD CREW. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        var app=angular.module('myApp',[]);
+         app.controller('myCtrl',function($scope) {
+            $scope.valid = false;
+            $scope.submit = function(){
+                $scope.valid = true;
+                 if ($scope.myform.$valid){
+                    $window.location.href = "confirmation";
+                 }
+             };
+         });
+    </script>
+</body>
+</html>

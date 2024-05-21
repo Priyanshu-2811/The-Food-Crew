@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Dropdown Menu</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <h2>Choose a Subject:</h2>
+    <select ng-model="selectedsub" ng-options="subject for subject in subjects">
+        <option value="">-- Select Subject--</option>
+    </select>
+    <br>
+    <p><b>You selected:</b> {{selectedsub}}</p>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function($scope) {
+        $scope.subjects = ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'Computer'];
+    });
+</script>
+
+</body>
+</html>

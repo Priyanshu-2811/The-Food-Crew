@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Us - Food Crew</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    background-image: url("/image/cback.png");
+    background-repeat: no-repeat;
+    background-size: 800px 650px;
+}
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: darkcyan;
+    color: #fff;
+}
+/*.top{
+    background-color: teal;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+    align-items:center;
+    padding:0px 40px;
+}
+.logo{
+    font-size: 30px;
+    color:lightcyan;
+}
+.nav{
+    position: relative;
+    left:-180px;
+}
+a{
+    padding:5px 15px;
+    color:lightcyan;
+    font-size: 20px;
+    text-decoration:none;
+}
+a:hover{
+    color:teal;
+    text-decoration: underline;
+    text-underline-position:under;
+}*/
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+}
+
+main {
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-form {
+    width: 30%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    resize: none;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-info {
+    width: 40%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: #fff;
+    background-image:url("/image/contactusimg.avif");
+    background-repeat: no-repeat;
+    background-size: 800px 650px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
+    </style>
+
+</head>
+<body>
+    {{!-- <div class="top">
+        <div class="logo">The Food Crew</div>
+        <div class="nav">
+            <a href="welcome">Home</a>
+            <a href="about">About</a>
+            <a href="loc">Location</a>
+            <a href="#">Sign Up</a>
+        </div> --}}
+    <header>
+        <h1>Contact Us - FOOD CREW</h1>
+        <p>We'd love to hear from you!</p>
+    </header>
+    <main>
+        <section class="contact-form">
+            <h2>Get in Touch</h2>
+            <form id="contact-form" action="#">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+        <section class="contact-info">
+            <h2>Find Us</h2>
+            <p>FOOD CREW</p>
+            <p>+91 8601177353</p>
+            <p>THEFOODCREW@gmail.com</p>
+        </section>
+    </main>
+</body>
+</html>

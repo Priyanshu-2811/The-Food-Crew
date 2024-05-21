@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Picture</title>
+    <link rel="stylesheet" href="wp-3.css">
+    
+</head>
+<body>
+    <div id="pic1" class="picture">
+        <img src="assi.jpg" width="200" height="200">
+        <div id="desc1" class="description">Assi Ghat- The Peace of Hindu pilgrims. <br>
+            Assi Ghat, located on the southern end of Varanasi along the banks of the sacred Ganges River, 
+            It is one of the most significant and bustling ghats in the city.<br>
+            It is named after the Assi River, which meets the Ganges at this spot.<br>
+            </div>
+    </div>
+    <div id="pic2" class="picture">
+        <img src="naini.png" width="200" height="200">
+        <div id="desc2" class="description">Nainital, nestled in the Kumaon region of Uttarakhand, India.<br>
+            The town is named after the pristine Naini Lake.</div>
+    </div>
+    <script language="JavaScript">
+        var picture1 = document.getElementById("pic1");
+        var picture2 = document.getElementById("pic2");
+        var description1 = document.getElementById("desc1");
+        var description2 = document.getElementById("desc2");
+
+        picture1.addEventListener("mouseover", function() {
+            description1.style.display = "block";
+        });
+        picture1.addEventListener("mouseout", function() {
+            description1.style.display = "none";
+        });
+
+        picture2.addEventListener("mouseover", function() {
+            description2.style.display = "block";
+        });
+        picture2.addEventListener("mouseout", function() {
+            description2.style.display = "none";
+        });
+    </script>
+</body>
+</html>
